@@ -21,6 +21,15 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
         
+    @IBAction func touchNewGameButton(_ sender: UIButton) {
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+            button.setTitle("", for: UIControl.State.normal)
+        }
+    }
+    
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
