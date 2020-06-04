@@ -28,6 +28,7 @@
 		792977BE2485D9AD00D40734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79D1E9982488622D00AC31F1 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		79D1E99A248862E500AC31F1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		79D1E99E24887C8700AC31F1 /* homework.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = homework.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 		792977A42485D9AC00D40734 = {
 			isa = PBXGroup;
 			children = (
+				79D1E99E24887C8700AC31F1 /* homework.md */,
 				792977AF2485D9AC00D40734 /* ConcentrationGame */,
 				792977AE2485D9AC00D40734 /* Products */,
 			);
