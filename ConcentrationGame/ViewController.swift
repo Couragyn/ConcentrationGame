@@ -28,6 +28,7 @@ class ViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             button.setTitle("", for: UIControl.State.normal)
         }
+        flipCount = 0
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
