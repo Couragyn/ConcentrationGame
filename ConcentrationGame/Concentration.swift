@@ -33,11 +33,12 @@ class Concentration {
     }
     
     init(numberOfPairsOfCards: Int) {
+        Card.resetIdentifier()
         for _ in 0..<numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
         }
-        
-        // TODO: Shuffle the cards
+        cards.shuffle()
+        print(cards)
     }
 }

@@ -20,6 +20,10 @@ struct Card {
         return identifierFactory
     }
     
+    static func resetIdentifier() {
+        identifierFactory = 0
+    }
+    
     init() {
         self.identifier = Card.getUniqueIdentifier()
     }
