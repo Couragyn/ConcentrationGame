@@ -39,6 +39,5 @@ class Concentration {
             cards += [card, card]
         }
         cards.shuffle()
-        print(cards)
     }
 }
