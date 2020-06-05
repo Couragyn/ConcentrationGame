@@ -23,9 +23,10 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
-    
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
-            
+    @IBOutlet weak var newGameButton: UIButton!
+    
     @IBAction func touchNewGameButton(_ sender: UIButton) {
         emoji.removeAll()
         setTheme()
@@ -95,6 +96,9 @@ class ViewController: UIViewController {
         backgroundColor = backgroundColors[themeIndex]
         cardColor = cardColors[themeIndex]
 
+        scoreLabel.textColor = cardColor
+        flipCountLabel.textColor = cardColor
+        newGameButton.backgroundColor = cardColor
         view.backgroundColor = backgroundColor
         for index in cardButtons.indices {
             cardButtons[index].backgroundColor = cardColor
