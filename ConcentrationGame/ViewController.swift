@@ -54,9 +54,7 @@ class ViewController: UIViewController {
         } else {
             print("card not in cardButtons")
         }
-        print("score before: ",scoreCount)
         scoreCount += game.scoreChange
-        print("score after: ",scoreCount)
     }
     
     func updateViewFromModel() {
