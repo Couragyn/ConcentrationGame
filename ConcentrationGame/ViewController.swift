@@ -22,8 +22,14 @@ class ViewController: UIViewController {
         }
     }
     
+    var scoreCount = 0 {
+        didSet{
+            scoreCountLabel.text = "Score: \(scoreCount)"
+        }
+    }
+    
     @IBOutlet weak var flipCountLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var scoreCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -48,6 +54,9 @@ class ViewController: UIViewController {
         } else {
             print("card not in cardButtons")
         }
+        print("score before: ",scoreCount)
+        scoreCount += game.scoreChange
+        print("score after: ",scoreCount)
     }
     
     func updateViewFromModel() {
@@ -96,7 +105,7 @@ class ViewController: UIViewController {
         backgroundColor = backgroundColors[themeIndex]
         cardColor = cardColors[themeIndex]
 
-        scoreLabel.textColor = cardColor
+        scoreCountLabel.textColor = cardColor
         flipCountLabel.textColor = cardColor
         newGameButton.backgroundColor = cardColor
         view.backgroundColor = backgroundColor

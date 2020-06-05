@@ -230,7 +230,7 @@
                     <connections>
                         <outlet property="flipCountLabel" destination="kYI-3T-9kR" id="vcX-T9-LPY"/>
                         <outlet property="newGameButton" destination="GAv-tC-rGs" id="d57-z6-Wgp"/>
-                        <outlet property="scoreLabel" destination="FxK-pG-I1U" id="FW5-tr-fbY"/>
+                        <outlet property="scoreCountLabel" destination="FxK-pG-I1U" id="FW5-tr-fbY"/>
                         <outletCollection property="cardButtons" destination="clX-Jk-ox3" collectionClass="NSMutableArray" id="4I6-AY-Bcp"/>
                         <outletCollection property="cardButtons" destination="WwW-KJ-t5Y" collectionClass="NSMutableArray" id="DkK-4K-4La"/>
                         <outletCollection property="cardButtons" destination="fjn-xd-4wY" collectionClass="NSMutableArray" id="aoW-ag-dIJ"/>
