@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     var emoji = [Int:String]()
-    var emojiChoices = ["👻","🎃","🍭","🙀","👹","🦇","😱","🍫","😈", "🍬"]
-    var backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    var cardColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+    let haloweenTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["👻","🎃","🍭","🙀","👹","🦇","😱","🍫","😈", "🍬"], #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
+    lazy var emojiChoices = haloweenTheme.emojis
+    lazy var backgroundColor = haloweenTheme.backgroundColor
+    lazy var cardColor = haloweenTheme.cardColor
     
     lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
    
@@ -79,29 +80,20 @@ class ViewController: UIViewController {
     }
            
     func setTheme() {
-        var allEmojiChoices = ([["👻","🎃","🍭","🙀","👹","🦇","😱","🍫","😈", "🍬"]])
-        var backgroundColors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-        var cardColors = [#colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)]
+        let sportTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["🎾","🏀","🏈","⚾️","⚽️","🏒","🏓","🏸","🏹", "⛳️"], #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
+
+        let animalTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["🦓","🐒","🦧","🐖","🐨","🐧","🐩","🐵","🦙", "🐭"], #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1), #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
+
+        let fishTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["🐠","🐟","🐬","🐳","🐋","🦈","🐙","🦐","🦞", "🐡"], #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
+
+        let toolTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["🛠","🔧","🔨","🔩","⛏","🧰","🪓","⚒️","⚙️", "🗜"], #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))
+
+        let flagTheme: (emojis: Array<String>, backgroundColor: UIColor, cardColor: UIColor) = (["🇨🇦","🇹🇭","🇱🇧","🇴🇲","🇸🇧","🇬🇧","🇦🇶","🇲🇿","🇲🇽", "🇪🇺"], #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1))
+
         
-        allEmojiChoices.append(["🎾","🏀","🏈","⚾️","⚽️","🏒","🏓","🏸","🏹", "⛳️"])
-        backgroundColors.append(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
-        cardColors.append(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
-        
-        allEmojiChoices.append(["🦓","🐒","🦧","🐖","🐨","🐧","🐩","🐵","🦙", "🐭"])
-        backgroundColors.append(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
-        cardColors.append(#colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1))
-        
-        allEmojiChoices.append(["🐠","🐟","🐬","🐳","🐋","🦈","🐙","🦐","🦞", "🐡"])
-        backgroundColors.append(#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
-        cardColors.append(#colorLiteral(red: 0.0147047256, green: 0.3567843264, blue: 0.01009623885, alpha: 1))
-        
-        allEmojiChoices.append(["🛠","🔧","🔨","🔩","⛏","🧰","🪓","⚒️","⚙️", "🗜"])
-        backgroundColors.append(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        cardColors.append(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))
-        
-        allEmojiChoices.append(["🇨🇦","🇹🇭","🇱🇧","🇴🇲","🇸🇧","🇬🇧","🇦🇶","🇲🇿","🇲🇽", "🇪🇺"])
-        backgroundColors.append(#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
-        cardColors.append(#colorLiteral(red: 0.08718833829, green: 0.7493725712, blue: 0.1002399095, alpha: 1))
+        let allEmojiChoices = ([haloweenTheme.emojis, sportTheme.emojis, animalTheme.emojis, fishTheme.emojis, toolTheme.emojis, flagTheme.emojis])
+        let backgroundColors = ([haloweenTheme.backgroundColor, sportTheme.backgroundColor, animalTheme.backgroundColor, fishTheme.backgroundColor, toolTheme.backgroundColor, flagTheme.backgroundColor])
+        let cardColors = ([haloweenTheme.cardColor, sportTheme.cardColor, animalTheme.cardColor, fishTheme.cardColor, toolTheme.cardColor, flagTheme.cardColor])
         
         let themeIndex = Int.random(in: 0 ..< 6)
         emojiChoices.removeAll()
