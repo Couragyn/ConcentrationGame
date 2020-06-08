@@ -14,8 +14,12 @@ class ViewController: UIViewController {
     var backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     var cardColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
     
-    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-            
+    lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+   
+    var numberOfPairsOfCards: Int {
+        return (cardButtons.count + 1) / 2
+    }
+    
     var flipCount = 0 {
         didSet{
             flipCountLabel.text = "Flips: \(flipCount)"
@@ -44,6 +48,7 @@ class ViewController: UIViewController {
             button.setTitle("", for: UIControl.State.normal)
         }
         flipCount = 0
+        scoreCount = 0
     }
     
     @IBAction func touchCard(_ sender: UIButton) {

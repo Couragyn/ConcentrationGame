@@ -11,9 +11,38 @@ import Foundation
 class Concentration {
     var cards = [Card]()
     var chosenCards = [Int]()
-    var indexOfOneAndOnlyFaceUpCard: Int?
     var scoreChange = 0
     var flipChange = 0
+    
+    var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
+    
+    func calculateScore(by index: Int) {
+        if chosenCards.contains(index) {
+            
+            scoreChange += -1
+        } else {
+            chosenCards.append(index)
+        }
+    }
     
     func chooseCard(at index: Int) {
         scoreChange = 0
@@ -26,30 +55,12 @@ class Concentration {
                     cards[index].isMatched = true
                     scoreChange = 2
                 } else {
-                    if chosenCards.contains(cards[matchIndex].identifier) {
-                        scoreChange = -1
-                    } else {
-                        chosenCards.append(cards[matchIndex].identifier)
-                    }
-                    if chosenCards.contains(cards[index].identifier) {
-                        scoreChange = -1
-                    } else {
-                        chosenCards.append(cards[index].identifier)
-                    }
+                    calculateScore(by: index)
+                    calculateScore(by: matchIndex)
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
             } else {
-                if chosenCards.contains(cards[index].identifier) {
-                    scoreChange = -1
-                } else {
-                    chosenCards.append(cards[index].identifier)
-                }
                 // either no cards or 2 cards are face up
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
